@@ -11,6 +11,7 @@
 - 제주 양식넙치의 월별 산지가격 예측 및 예측력 비교
 - 시계열 분석을 이용한 굴 가격 예측에 관한 연구
 - [VAR 모형을 이용한 유통단계별 갈치가격의 인과성 분석](https://scienceon.kisti.re.kr/commons/util/originalView.do?cn=JAKO201516351715460&oCn=JAKO201516351715460&dbt=JAKO&journal=NJOU00293779)
+- [FTA 체결 이후 수입수산물의 유통·소비 현황과 과제](https://www.nkis.re.kr:4445/subject_view1.do?otpId=KMI00053255&otpSeq=0&popup=P)
 ### Kaggle
 - [자전거 수요 예측](https://www.kaggle.com/viveksrinivasan/eda-ensemble-model-top-10-percentile)
 - [집값 예측](https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python)
