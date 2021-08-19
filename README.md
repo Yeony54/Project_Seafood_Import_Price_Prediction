@@ -5,6 +5,12 @@
 - [빅콘테스트](https://www.bigcontest.or.kr/index.php)
 - [주요 농산물 가격예측 시스템](https://www.gyeongnam.go.kr/bigdatafarm/index.es?sid=a1#close)
 
+## DATA
+- [빅콘테스트 2021 수산물 수입가격 예측을 통한 최적의 가격 예측 모형 도출](https://www.bigcontest.or.kr/)
+- [수심별 염도](http://www.climate.go.kr/home/09_monitoring/marine/salt_avg)
+- [지출목적별 소비자물가지수, 소비자물가지수](https://kosis.kr/index/index.do)
+- [환율,원유](https://kr.investing.com/currencies/cny-krw-historical-data)
+
 ## References
 ### Studies
 - [계절성을 고려한 가공유형별 오징어 소매가격 예측모형 비교 분석](http://english.ksfme.or.kr/xml/15446/15446.pdf)
@@ -19,5 +25,4 @@
 ### Etc
 - KAPI·Korea Agricultural product Price Index
 - [세계환율](https://kr.investing.com/currencies/cny-krw-historical-data)
-
 
