@@ -24,7 +24,8 @@ from sklearn.preprocessing import StandardScaler
 from scipy import stats
 
 # Date Functions
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
+from calendar import monthrange
 
 
 def set_week(df, date):
@@ -45,7 +46,7 @@ def check_week(df):
     """
     dataframe에 sdate 과 edate 사이에 모든 데이터가 있는지 확인하는 함수
     :param df: 검사하고자 하는 dataframe (set_week 형태)
-    :return: 데이터가 전체 존재하는지 여부
+    :return: None
     """
     cnt = 0
     sdate = date(2015, 12, 28)  # start date
@@ -66,14 +67,13 @@ def check_week(df):
         print()
     print("missing", cnt, "values")
 
+    
 # Wrangling Hypothesis Validation Functions
 def RMSE(y, y_pred):
     return mean_squared_error(y, y_pred) ** 0.5
 
 
 def train_model(train_data, target_data, model=LinearRegression()):  # baseline model : LinearRegression
-    global cnt
-    cnt += 1
     x_train, x_test, y_train, y_test = train_test_split(train_data, target_data, random_state=0)
 
     model.fit(x_train, y_train)
