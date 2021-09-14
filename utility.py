@@ -28,11 +28,11 @@ from sklearn.preprocessing import StandardScaler
 from scipy import stats
 from scipy.stats import randint
 
-# Date Functions
+# Date
 from datetime import date, timedelta, datetime
 from calendar import monthrange
 
-
+################################################################## Date
 def set_week(df, date):
     """
     dataframe 의 년월일 날짜 컬럼을 년 컬럼과 주차 컬럼으로 분리하는 함수
@@ -73,7 +73,7 @@ def check_week(df):
     print("missing", cnt, "values")
 
     
-# Wrangling Hypothesis Validation Functions
+################################################################## Wrangling Hypothesis Validation Functions
 def RMSE(y, y_pred):
     return mean_squared_error(y, y_pred) ** 0.5
 
@@ -86,23 +86,19 @@ def train_model(train_data, target_data, model=LinearRegression()):  # baseline 
 
     pred_train, pred_test = model.predict(x_train), model.predict(x_test)
 
-    plt.figure(figsize=(10, 8))
-    #     plt.scatter(pred_train, y_train, s=10)
+    g = plt.figure(figsize=(10, 8))
     sns.regplot(pred_train, y_train, color='g')
     plt.xlabel("Predicted price")
     plt.ylabel("Actual price")
-    # plt.savefig(os.path.join(root, 'IMAGES', str(cnt) + '.png'), transparent=True)
     plt.show()
 
-    # cvs = cross_val_score(model, x_test, y_test, cv = 5)
-    # print(">> cross_val_score mean =", cvs.mean())
     print(">> RMSE train =", RMSE(y_train, pred_train))
     print(">> RMSE validation =", RMSE(y_test, pred_test))
-    print(">> MAE train =", mean_absolute_error(pred_train, y_train))
-    print(">> MAE validation =", mean_absolute_error(pred_test, y_test))
+#     print(">> MAE train =", mean_absolute_error(pred_train, y_train))
+#     print(">> MAE validation =", mean_absolute_error(pred_test, y_test))
     print("-------------------------------------------------")
 
-    return model
+    return model, g
 
 
 def print_importance(model, df, added_columns):
@@ -161,6 +157,10 @@ def model_scaler(data, col, scaler=None):
 
         return features, target
 
+################################################################## Save images
+def save_img(plt, img_name):
+    plt.savefig(os.path.join(os.getcwd(), 'IMAGES', img_name + '.png'), transparent=True)
+    return
 
 ################################################################################################################################################
 
