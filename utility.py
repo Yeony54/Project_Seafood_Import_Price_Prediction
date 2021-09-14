@@ -28,11 +28,11 @@ from sklearn.preprocessing import StandardScaler
 from scipy import stats
 from scipy.stats import randint
 
-# Date Functions
+# Date
 from datetime import date, timedelta, datetime
 from calendar import monthrange
 
-
+################################################################## Date
 def set_week(df, date):
     """
     dataframe 의 년월일 날짜 컬럼을 년 컬럼과 주차 컬럼으로 분리하는 함수
@@ -73,12 +73,20 @@ def check_week(df):
     print("missing", cnt, "values")
 
     
-# Wrangling Hypothesis Validation Functions
+################################################################## Wrangling Hypothesis Validation Functions
 def RMSE(y, y_pred):
     return mean_squared_error(y, y_pred) ** 0.5
 
 
-def train_model(train_data, target_data, model=LinearRegression()):  # baseline model : LinearRegression
+def train_model(train_data, target_data, model=LinearRegression()):
+    """
+    주어진 model로 train_data와 target_data를 훈련하는 함수
+    :param train_data: data for training model
+    :param target_data: target value to be predicted
+    :param model: model to train (default: Linear Regression Model)
+    :return model: trained model
+    :return g: regression plot
+    """
     x_train, x_test, y_train, y_test = train_test_split(train_data, target_data, random_state=0)
 
     model.fit(x_train, y_train)
@@ -86,23 +94,19 @@ def train_model(train_data, target_data, model=LinearRegression()):  # baseline 
 
     pred_train, pred_test = model.predict(x_train), model.predict(x_test)
 
-    plt.figure(figsize=(10, 8))
-    #     plt.scatter(pred_train, y_train, s=10)
-    sns.regplot(pred_train, y_train, color='g')
+    g = plt.figure(figsize=(10, 8))
+    sns.regplot(pred_train, y_train, scatter_kws = {'color': '#4CB7D8', 'alpha': 0.4}, line_kws = {'color': '#141D50', 'alpha': 0.8})
     plt.xlabel("Predicted price")
     plt.ylabel("Actual price")
-    # plt.savefig(os.path.join(root, 'IMAGES', str(cnt) + '.png'), transparent=True)
     plt.show()
 
-    # cvs = cross_val_score(model, x_test, y_test, cv = 5)
-    # print(">> cross_val_score mean =", cvs.mean())
     print(">> RMSE train =", RMSE(y_train, pred_train))
     print(">> RMSE validation =", RMSE(y_test, pred_test))
-    print(">> MAE train =", mean_absolute_error(pred_train, y_train))
-    print(">> MAE validation =", mean_absolute_error(pred_test, y_test))
+#     print(">> MAE train =", mean_absolute_error(pred_train, y_train))
+#     print(">> MAE validation =", mean_absolute_error(pred_test, y_test))
     print("-------------------------------------------------")
 
-    return model
+    return model, g
 
 
 def print_importance(model, df, added_columns):
@@ -123,13 +127,12 @@ def print_importance(model, df, added_columns):
 
 
 def model_scaler(data, col, scaler=None):
-    '''
+    """
     정규화 함수
     data : dataframe
     column : P_PRICE
     scaler : standard, robust, minmax, log
-
-    '''
+    """
 
     features = data.drop(col, axis=1)
     target = data[col]
@@ -161,6 +164,16 @@ def model_scaler(data, col, scaler=None):
 
         return features, target
 
+################################################################## Save images
+def save_img(plt, img_name):
+    """
+    주어진 그래프를 저장하는 함수
+    :param plt: 저장하고자 하는 그래프
+    :param img_name: 이미지 파일명
+    :return: None
+    """
+    plt.savefig(os.path.join(os.getcwd(), 'IMAGES', img_name + '.png'), transparent=True)
+    return
 
 ################################################################################################################################################
 
