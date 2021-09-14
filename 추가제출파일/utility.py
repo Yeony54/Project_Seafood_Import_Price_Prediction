@@ -300,7 +300,7 @@ def model_train(data, col, scaler, cv=5, n_iter=50, model=None):
         print('Predict RMSE:', (np.sqrt(mean_squared_error(y_test, pred))))
 
 
-    elif model == 'gradinet':
+    elif model == 'gradient':
 
         params = {'n_estimators': randint(30, 1000),
                   'learning_rate': (
