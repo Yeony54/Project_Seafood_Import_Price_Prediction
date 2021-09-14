@@ -78,7 +78,15 @@ def RMSE(y, y_pred):
     return mean_squared_error(y, y_pred) ** 0.5
 
 
-def train_model(train_data, target_data, model=LinearRegression()):  # baseline model : LinearRegression
+def train_model(train_data, target_data, model=LinearRegression()):
+    """
+    주어진 model로 train_data와 target_data를 훈련하는 함수
+    :param train_data: data for training model
+    :param target_data: target value to be predicted
+    :param model: model to train (default: Linear Regression Model)
+    :return model: trained model
+    :return g: regression plot
+    """
     x_train, x_test, y_train, y_test = train_test_split(train_data, target_data, random_state=0)
 
     model.fit(x_train, y_train)
@@ -87,7 +95,7 @@ def train_model(train_data, target_data, model=LinearRegression()):  # baseline 
     pred_train, pred_test = model.predict(x_train), model.predict(x_test)
 
     g = plt.figure(figsize=(10, 8))
-    sns.regplot(pred_train, y_train, color='g')
+    sns.regplot(pred_train, y_train, scatter_kws = {'color': '#4CB7D8', 'alpha': 0.4}, line_kws = {'color': '#141D50', 'alpha': 0.8})
     plt.xlabel("Predicted price")
     plt.ylabel("Actual price")
     plt.show()
@@ -119,13 +127,12 @@ def print_importance(model, df, added_columns):
 
 
 def model_scaler(data, col, scaler=None):
-    '''
+    """
     정규화 함수
     data : dataframe
     column : P_PRICE
     scaler : standard, robust, minmax, log
-
-    '''
+    """
 
     features = data.drop(col, axis=1)
     target = data[col]
@@ -159,6 +166,12 @@ def model_scaler(data, col, scaler=None):
 
 ################################################################## Save images
 def save_img(plt, img_name):
+    """
+    주어진 그래프를 저장하는 함수
+    :param plt: 저장하고자 하는 그래프
+    :param img_name: 이미지 파일명
+    :return: None
+    """
     plt.savefig(os.path.join(os.getcwd(), 'IMAGES', img_name + '.png'), transparent=True)
     return
 
