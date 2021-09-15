@@ -1,6 +1,13 @@
 # 수산물 수입가격 예측을 통한 최적의 가격 예측 모형 도출
 *2021 BigContest Championship League*
 
+## 1. 파일 소개
+- [제공데이터 EDA.ipynb] : 제공데이터를 분석하여, 분석 방향을 도출한 파일입니다
+- [추가데이터 EDA.ipynb] : 제공데이터외에 자료조사를 하여 필요하다고 여긴 세계날씨(강수량, 풍속, 기온), 한국 날씨(강수량, 수온, 기온), CPI지수, 유가, 환율 데이터를 EDA한 파일입니다. 
+- [3-0.추가 데이터 전처리.ipynb] : 유가, 한국 날씨, CPI지수 데이터를 전처리한 파일입니다.
+- [3-0.추가 데이터 전처리.ipynb]
+
+
 ## Links
 - [빅콘테스트](https://www.bigcontest.or.kr/index.php)
 - [주요 농산물 가격예측 시스템](https://www.gyeongnam.go.kr/bigdatafarm/index.es?sid=a1#close)
