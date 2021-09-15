@@ -17,15 +17,15 @@
 *4.2.시계열 모델.ipynb* : 주요국가(칠레, 중국, 노르웨이, 태국, 베트남) 주차별 상세어종(오징어, 연어, 흰다리새우) 가격 평균을 통해 prophet, RNN, LSTM, GRU를 통해 rmse측정 및 가격 예측을 한 파일입니다.  
 
 
-## Links
-- [빅콘테스트](https://www.bigcontest.or.kr/index.php)
-- [주요 농산물 가격예측 시스템](https://www.gyeongnam.go.kr/bigdatafarm/index.es?sid=a1#close)
-
-## DATA
+## 2. 추가 DATA
 - [빅콘테스트 2021 수산물 수입가격 예측을 통한 최적의 가격 예측 모형 도출](https://www.bigcontest.or.kr/)
 - [수심별 염도](http://www.climate.go.kr/home/09_monitoring/marine/salt_avg)
 - [지출목적별 소비자물가지수, 소비자물가지수](https://kosis.kr/index/index.do)
 - [환율,원유](https://kr.investing.com/currencies/cny-krw-historical-data)
+
+## Links
+- [빅콘테스트](https://www.bigcontest.or.kr/index.php)
+- [주요 농산물 가격예측 시스템](https://www.gyeongnam.go.kr/bigdatafarm/index.es?sid=a1#close)
 
 ## References
 ### Studies
